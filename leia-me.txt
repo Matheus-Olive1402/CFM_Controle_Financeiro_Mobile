@@ -1,0 +1,34 @@
+Manual (Português - BR)
+
+Infelizmento no momento não consigo gerar um APK, alem da questão burocrativa para a postagem de um app
+
+Logo o sistema pode ficar um relativo tempo ainda em 'linhas'
+
+primero peço desculpas pelo trantorno. o proposito desse txt é pra orietar como rodar em sua maquina o meu projeto
+
+Vamos aos passos
+Opcionais:
+Terminal do git , sugiro pois é melhor pra trabalahr com pacotes (Download: https://git-scm.com/downloads)
+
+
+
+1º
+instalar o node.js
+https://nodejs.org/en/download/
+acima o link para download da pagina oficial, logo escolhe seu sistema operacional
+(sugiro o LTS no dowloado)
+
+processo:
+pode seguir com o next até o fim da instalação (claro caso não queira icons no desktop ou outras ferramentas desmarcar)
+
+
+2º
+Abrir o git ou o terminal da sua preferencia
+ir até a pasta do projeto que você baixou no github
+executar : npm install -g yarn e apos o fim o npm install --global expo-cli, ambos para a funcionalidade do expo na sua maquina
+
+Em caso de problema ou duvida enviar email para 'matheus.olive1402@hotmail.com'
+
+Grato pela compreensão
+
+

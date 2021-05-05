@@ -1,0 +1,38 @@
+Padrão
+npm install -g yarn (instalar o yarn)
+npm install --global expo-cli (instalar o expo)
+expo init ###nome###  (criar o projeto)
+
+Desse projeto
+
+Navegação
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view (routes)
+npm install @react-navigation/native   
+npm install @react-navigation/stack  
+npm install @react-navigation/drawer
+
+banco de dados
+expo install firebase
+expo install @react-native-async-storage/async-storage (pra salvar no projeto)
+
+Animação
+expo install expo-app-loading
+expo install lottie-react-native
+
+Fonts
+expo install expo-font @expo-google-fonts/jost  (bibliotecas do google)
+
+Icons
+npm install react-native-vector-icons
+npx react-native link react-native-vector-icons
+
+Adaptar a IOS e Android
+yarn add @react-native-community/datetimepicker
+yarn add @react-native-community/picker
+npm i react-native-picker-select
+
+Data
+npm install date-fns
+
+Componente em CSS
+yarn add styled-components
