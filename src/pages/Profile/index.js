@@ -1,3 +1,6 @@
+/*
+  Componente de Perfil do usuário
+*/
 import React, { useContext }  from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../components/Header';

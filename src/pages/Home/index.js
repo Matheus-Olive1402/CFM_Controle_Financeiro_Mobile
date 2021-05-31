@@ -23,6 +23,12 @@ export default function Home() {
   const [newDate, setNewDate] = useState(new Date());
   const [show, setShow] = useState(false);
 
+  //o 1º await faz a função ir no banco de dados é pegar o users/saldo é vai apontar para setsaldo (o valor)
+  //o 2º await faz a função ir no banco de dados é pegar o historico/uid(key do usuario) sendo que vai pegar a data que estiver na 'new Data' por padrão vai ser hoje e no limite de 10 itens
+  //o snapshot vai fazer um forEach para buscar key,tipo e etc no bd é enviar para 'list'
+  //na parte de baixo o setHistorico usa o oldarray para não repetir os dados do foreach e de forma reversa do mais novo para o mais velho
+
+  //na ultima linha o useEffext só vai ser executado novamente quando o newdate sofre alguma alteração
   useEffect(()=>{
     async function loadList(){
       await firebase.database().ref('users').child(uid).on('value', (snapshot)=>{
@@ -52,15 +58,22 @@ export default function Home() {
     loadList();
   }, [newDate]);
 
-
+//caso no fim, você aceita vai ser realizado a chamada para outra função
   function handleDelete(data){
+    //para tirar a regra de apenas no dia atual pode apagar , basta apagar os 5 const 2 console.log e o if
+
 
     //Pegando data do item:
+    //1º linha é para deixa no padrão de dados com '/'
+    //2º uma variavel para receber o formato
     const [diaItem, mesItem, anoItem] = data.date.split('/');
     const dateItem = new Date(`${anoItem}/${mesItem}/${diaItem}`);
     console.log(dateItem);
 
     //Pegando data hoje:
+    //1º aplicando o formato de tempo
+    //2º linha é para deixa no padrão de dados com '/'
+    //3º uma variavel para receber o formato
     const formatDiaHoje = format(new Date(), 'dd/MM/yyyy');
     const [diaHoje, mesHoje, anoHoje] = formatDiaHoje.split('/');
     const dateHoje = new Date(`${anoHoje}/${mesHoje}/${diaHoje}`);
@@ -91,7 +104,9 @@ export default function Home() {
 
   }
 
-
+// o await vai no bd historico/uid vai pegar o no/campo data (que foi informado na funçaõ acima) é removido do bd
+// então (then) vai ter um variavel saldoAtual vai recebe o saldo no bd , então vai ser aplicado um if no tipo (se for receita + e despesa -)
+// o await vai o 'saldoAtual' no saldo que ta no bd
   async function handleDeleteSuccess(data){
     await firebase.database().ref('historico')
     .child(uid).child(data.key).remove()
@@ -107,6 +122,12 @@ export default function Home() {
     })
   }
 
+  // f1,f2 e const = são relacionado ao calendario (picker)
+  //f1 = ao cliclar exibir
+  //f2 = ao cliclar desativar a exibição
+  //const 1 para qunado for ios mudar o layouy, enviar um nova data para 'date' assim ativando o useEffect
+  //existe uma variavel show só pra parte de fechar e os restantes
+
   function handleShowPicker(){
     setShow(true);
   }
@@ -120,7 +141,8 @@ export default function Home() {
     setNewDate(date);
     console.log(date);
   } 
-
+// em renderItem o historicolis é os icons e esta enviando o data e deleteitem
+// Show chama o DataPicker para fazer o layout da biblioteca e fazer a funcionalidade de escolha
  return (
     <Background>
       <Header/>
@@ -142,7 +164,6 @@ export default function Home() {
       keyExtractor={ item => item.key}
       renderItem={ ({ item }) => ( <HistoricoList data={item} deleteItem={handleDelete} /> )}
       />
-
       
       {show && (
         <DatePicker
@@ -153,7 +174,7 @@ export default function Home() {
       )}
 
     </Background>
-    
+    //list é referente a caixa branca que tem as informações, 1º informações em vertical,  2] a variavel local com dados
   );
 
 }

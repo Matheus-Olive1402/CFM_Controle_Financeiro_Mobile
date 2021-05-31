@@ -1,3 +1,9 @@
+/*
+O proposito desse componente é Permiter que todos os componentes do projeto acesse as variaves e contantes dessa tela
+Vale reforça que essa tela é auth ou seja todas as autenticações passa por esse componente
+
+*/
+
 import React, { useState, createContext, useEffect } from 'react';
 import firebase from '../services/firebaseConnection';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -5,14 +11,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 //Permiter que todos os componentes do projeto acesse as variaves e contantes dessa tela
 export const AuthContext = createContext({});
 
+
 function AuthProvider({ children }){
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [loadingAuth, setLoadingAuth] = useState(false);
 
 
-    //Pesquisar caso tenha um usuário no sistema
-    //com o async procurar o 'auth_user' if tiver usuario o Loading é falsa logo enviado a informação para routes
+//Pesquisar caso tenha um usuário no sistema
+//com o async procurar o 'auth_user' if tiver usuario o Loading é falsa logo enviado a informação para routes
     useEffect(()=> {
        async function loadStorage(){
            const storageUser = await AsyncStorage.getItem('Auth_user');
@@ -54,6 +61,8 @@ function AuthProvider({ children }){
     }
     
     //Cadastrar usuario
+    //().create... é o compoenente pra criar um ususario no banco de dados e logo apos colocoar saldo zero, VALE lempra quem autenticaçaõ só tem email e senha ! pra colocar o nome tem que criar um const é apontar (no caso nome)
+    // then(então) em data vai pegar os 3 paramentro e tirar do login
     async function signUp(email, password, nome){
         setLoadingAuth(true);
         await firebase.auth().createUserWithEmailAndPassword(email,password)
@@ -94,7 +103,7 @@ function AuthProvider({ children }){
         })
 
     }
-
+    
     return(
      <AuthContext.Provider value={{ signed: !!user , user, loading, signUp, signIn, signOut, loadingAuth }}>
          {children}

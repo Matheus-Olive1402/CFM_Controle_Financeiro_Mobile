@@ -16,6 +16,9 @@ export default function New() {
  const [tipo, setTipo] = useState(null);
  const { user: usuario } = useContext(AuthContext);
 
+ //keyboard quando clicar fora da tela pra sair
+ //se não tiver setado nada , o string que está em float ou tipo é null, vai pedir para colocar algum dado
+
  function handleSubmit(){
   Keyboard.dismiss();
   if(isNaN(parseFloat(valor)) || tipo === null){
@@ -41,10 +44,10 @@ export default function New() {
  }
 
  //a primeira condicional é caso for em 'escolha um operação' ele vai para o processo de atualização no banco de dados
-
+ //uid é usario que é o 'user' do auth que vai pegar o uid dele (key do usuário)
  async function handleAdd(){
   if(tipo === 'operacao'){
-    alert('escolher uma das operações');
+    alert('escolha invalida');
     return
   } else{
 
@@ -76,6 +79,7 @@ export default function New() {
   }
 
  return (
+   //Picker recebe os dados
    <TouchableWithoutFeedback onPress={ () => Keyboard.dismiss() }>
    <Background>
        <Header/>

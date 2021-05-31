@@ -1,3 +1,9 @@
+/*
+Componente de entrada na tela (com o login validado)
+
+o primeiro AppDrawer.Screen é Home, logo ele vai ser o primeiro a ser executado
+*/
+
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 

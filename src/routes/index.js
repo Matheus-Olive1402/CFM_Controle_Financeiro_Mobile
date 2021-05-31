@@ -1,3 +1,7 @@
+/*
+Componente de condicional , caso o signed (que esteja verdadeiro ir para login caso não ir a tela de acesso)
+
+*/
 import React, { useContext } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { AuthContext } from '../contexts/auth';
@@ -25,5 +29,4 @@ function Routes(){
         signed ? <AppRoutes/> : <AuthRoutes/>
     )
 }
-
 export default Routes;

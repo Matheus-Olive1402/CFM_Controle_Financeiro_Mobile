@@ -25,7 +25,13 @@ pode seguir com o next até o fim da instalação (claro caso não queira icons 
 2º
 Abrir o git ou o terminal da sua preferencia
 ir até a pasta do projeto que você baixou no github
-executar : npm install -g yarn e apos o fim o npm install --global expo-cli, ambos para a funcionalidade do expo na sua maquina
+executar : npm install -g yarn e apos o fim do processo , executar npm install --global expo-cli, ambos para a funcionalidade do expo na sua maquina
+
+3º
+Com o CMD/terminal ir até o diretorio aonde se encontra a pasta do projeto e executar o comando 'expo start'
+ira abrir uma pagina na web e tem QRCODE
+usar o app 'expo go' (ele está na Play Store e App Store), para ler o QRCODE
+logo com isso vai roda o projeto
 
 Em caso de problema ou duvida enviar email para 'matheus.olive1402@hotmail.com'
 

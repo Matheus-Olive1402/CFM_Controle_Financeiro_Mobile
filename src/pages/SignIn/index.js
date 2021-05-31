@@ -1,3 +1,7 @@
+/*
+Tela de login
+*/
+
 import React, {useState, useContext} from 'react';
 import { Platform, ActivityIndicator, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';

@@ -1,9 +1,15 @@
+/*
+    Componente que tem o icone
+    Sendo que caso foi despesa v caso contrario ^
+*/
+
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import {Container, Tipo, IconView, TipoText, ValorText} from './styles';
 
+//o onLongPress é em caso de segura o botão
 export default function HistoricoList({ data, deleteItem }) {
  return (
    <TouchableWithoutFeedback onLongPress={ () => deleteItem(data) }>

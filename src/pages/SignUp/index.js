@@ -1,3 +1,6 @@
+/*
+  tela de cadastro
+*/
 import React, {useState, useContext} from 'react';
 import { Platform, ActivityIndicator,Keyboard, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 
@@ -19,7 +22,7 @@ export default function SignUp() {
     Keyboard.dismiss();
   }
   
-    //touchable serve pra quando tocar fora sair da tela de texto
+//touchable serve pra quando tocar fora sair da tela de texto
  return (
    <Background>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}> 

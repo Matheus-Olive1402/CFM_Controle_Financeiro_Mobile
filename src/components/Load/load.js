@@ -1,3 +1,7 @@
+/*
+    Compoenente de animaçaõ da tela para as fontes
+*/
+
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import LottieView from 'lottie-react-native';

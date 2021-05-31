@@ -1,6 +1,6 @@
 /*
 Autor: Matheus de oliviera
-Versão: 1.0.0
+Versão: 1.0.1
 
 descrição:
 De forma simples o aplicativo tem a função de ter um controle financeiro com gastos e despesas, podendo escolher
@@ -14,6 +14,13 @@ Bibliotecas:
 Por conta da quantidade está no aquivo bibliotecas.txt
 
 Contato: matheus.olive1402@hotmail.com
+
+
+NOVIDADES:
+
+Organição no codigo e comentarios
+Utilização de fontes
+Pseudo-documentação em src/assets
 */
 
 import 'react-native-gesture-handler';
@@ -31,6 +38,9 @@ import AppLoading from 'expo-app-loading';
 import Routes from './src/routes/index';
 
 export default function App() {
+
+  //Para case as fonts ainda não estajam carregados , usar a tela de loading
+  //em src/components/load tem a configuração é o loading em JSON
   const [fontsLoaded] = useFonts({
     Jost_400Regular,
     Jost_600SemiBold
